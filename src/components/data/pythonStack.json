@@ -1,0 +1,24 @@
+[
+    {
+      "name": "Python",
+      "logo": "https://i1.wp.com/stickker.net/wp-content/uploads/2015/09/python.png?fit=600%2C600&ssl=1",
+      "tags": ["c", "shell", "git"]
+    },
+    {
+      "name": "Tensorflow",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1200px-Tensorflow_logo.svg.png",
+      "tags": ["c", "shell", "git"]
+    },
+    {
+        "name": "Sklearn",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/1200px-Scikit_learn_logo_small.svg.png",
+        "tags": ["c", "shell", "git"]
+    },
+    {
+        "name": "Django",
+        "logo": "https://www.djangoproject.com/m/img/logos/django-logo-negative.png",
+        "tags": ["c", "shell", "git"]
+    }
+
+    
+]

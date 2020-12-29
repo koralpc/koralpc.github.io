@@ -8,16 +8,15 @@ import IconButton from "@material-ui/core/IconButton";
 // import MenuIcon from "@material-ui/icons/Menu";
 import { ButtonGroup } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import Brightness4Icon from '@material-ui/icons/Brightness4';
-
+import {Link} from 'react-scroll'
 
 const useStyles = makeStyles((theme) => ({
 
   appBar:{
-    position:"static",
+    position:"fixed",
     display:"flex",
-    background: "inherit",
-    color: "inherit"
+    background: "#303030",
+    color: "#fafafa"
   },
   grow: {
     flexGrow: 1,
@@ -28,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
   rightMenuButton: {
     marginLeft: "auto",
   },
+  scrollButton:{
+    color: "#fafafa"
+  }
 }));
 
 
@@ -48,9 +50,13 @@ export default function AppToolBar(props) {
           >
             <MenuIcon />
           </IconButton> */}
-          <Typography variant="h6" className={classes.title}>
+          <Button>
+          <Typography variant="h6" className={classes.title}  onClick={() => {
+                history.push("/");
+              }}>
             Koralp's page
           </Typography>
+          </Button>
           <ButtonGroup
             className={classes.rightMenuButton}
             color="inherit"
@@ -59,15 +65,7 @@ export default function AppToolBar(props) {
             <IconButton onClick={props.toggleTheme} component ="span">
             {props.brightnessIcon()}
             </IconButton>
-            <Button
-              color="inherit"
-              onClick={() => {
-                history.push("/");
-              }}
-            >
-              Main Page
-            </Button>
-            <Button
+            {/* <Button
               color="inherit"
               onClick={() => {
                 history.push("/about");
@@ -82,11 +80,24 @@ export default function AppToolBar(props) {
               }}
             >
               Projects
-            </Button>
+            </Button> */}
             {/* <Button color="inherit" href="mailto:mrkoralp@gmail.com">
               Contact
             </Button> */}
           </ButtonGroup>
+
+          <Button className={classes.scrollButton}>
+          <Link to="header" spy={true} smooth={true} offset={-70}>Home</Link>
+            </Button>
+          <Button className={classes.scrollButton}>
+          <Link to="about" spy={true} smooth={true} offset={-70}>About Me</Link>
+            </Button>
+            <Button className={classes.scrollButton}>
+              <Link to="techstack" spy={true} smooth={true} offset={-60}>Technologies</Link>
+            </Button>
+            <Button className={classes.scrollButton}>
+              <Link to="projects" spy={true} smooth={true}>Projects</Link>
+            </Button>
         </Toolbar>
       </AppBar>
     </div>
