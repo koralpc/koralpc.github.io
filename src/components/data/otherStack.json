@@ -1,0 +1,17 @@
+[{
+    "name": "Git",
+    "logo": "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
+    "tags": ["c", "shell", "git"]
+  },
+  {
+    "name": "Docker",
+    "logo": "https://nl.devoteam.com/wp-content/uploads/sites/15/2019/05/docker_facebook_share.png",
+    "tags": ["c", "shell", "git"]
+  },
+  {
+    "name": "GCP",
+    "logo": "https://cloud.google.com/images/social-icon-google-cloud-1200-630.png",
+    "tags": ["c", "shell", "git"]
+  }
+  
+]
