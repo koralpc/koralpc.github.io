@@ -19,7 +19,7 @@ const InfoView = (props) => {
     root: {
       marginTop: "2%",
       //(props.themeState === "light" ? "black" : "white"),
-      height: 450,
+      height: 550,
       width: "100%",
       //   textAlign: "center",
       //   justifyContent: "center",
@@ -114,7 +114,7 @@ const InfoView = (props) => {
         </Typography>
       </div>
       <div className={classes.infoCard}>
-        <Typography variant="h3"><a>For <a style= {{color:"orange"}}>more</a> info:</a></Typography>
+        <Typography variant="h3"><a>For <a style= {{color:"orange"}}>more</a> info</a></Typography>
         <IconButton
           aria-label="My LinkedIn account"
           href="https://www.linkedin.com/in/kcatalsakal/"

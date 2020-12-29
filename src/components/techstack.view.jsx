@@ -11,7 +11,7 @@ const TechStackView = (props) => {
             background : (props.themeState === "light" ? "#303030" : "#fafafa"),
             height:600,
             width:"100%",
-            justifyContent:"center"
+            justifyContent:"center",
         },
         header : {
             color : theme.palette.background.default,

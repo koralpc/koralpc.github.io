@@ -93,7 +93,7 @@ function App() {
               <InfoView id="about" themeState ={themeState}/>
                 {/* </Grid> */}
               <TechStackView id="techstack" themeState ={themeState}/>
-              <ProjectHomeView id="projects" themeState ={themeState}/>
+              {/* <ProjectHomeView id="projects" themeState ={themeState}/> */}
             </div>
           </Route>
           <Route path="/about">

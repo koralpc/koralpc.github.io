@@ -24,7 +24,7 @@ const HomeHeaderView = (props) => {
       display: "flex",
       fontFamily: "Cinzel",
       paddingTop: "10%",
-      paddingLeft: "10%",
+      paddingLeft: "4%",
       height: 200,
     },
     headerImg: {
