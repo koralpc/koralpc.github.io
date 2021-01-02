@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     background: "#303030",
     color: "#fafafa"
   },
+  title :{
+    color : "#fafafa"
+  },
   grow: {
     flexGrow: 1,
   },

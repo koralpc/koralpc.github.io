@@ -8,7 +8,7 @@ import profilePic from "../static/li_photo.jpg";
 const HomeHeaderView = (props) => {
   const useStyles = makeStyles((theme) => ({
     root: {
-      marginTop: "5%",
+      marginTop: "7%",
       display: "flex",
       //(props.themeState === "light" ? "black" : "white"),
       height: 400,
