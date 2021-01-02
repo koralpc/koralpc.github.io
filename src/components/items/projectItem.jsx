@@ -90,11 +90,19 @@ const ProjectItem = (props) => {
     axios
       .get(markdownURI)
       .then((response) => {
-        const responseData = { ...response.data.content };
-        setData(responseData);
-        setLoading(false);
+        const itemCount = Object.keys(response.data.content).length;
+        if (itemCount > 0){
+            const responseData = { ...response.data.content };
+            setData(responseData);
+            setLoading(false);
+        }
+        else{
+            history.push('/')
+        }
+
       })
       .catch((err) => {
+        console.log(err);
         setData({
           title: "",
           description: "",

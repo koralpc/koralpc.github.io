@@ -4,9 +4,7 @@ import { useState,Suspense,Spinner } from "react";
 import { MuiThemeProvider } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import AboutView from "./routes/about";
-import ProjectView from "./routes/projects";
+import { BrowserRouter as Router, Redirect, Switch, Route } from "react-router-dom";
 import ProjectHomeView from "./components/projects.home";
 //import { makeStyles } from "@material-ui/core";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
@@ -15,6 +13,7 @@ import HomeHeaderView from "./components/home.header";
 import InfoView from "./components/info.view";
 import TechStackView from "./components/techstack.view";
 import ProjectItem from "./components/items/projectItem";
+import ScrollToTop from "./components/utils/scrollTop";
 
 // const useStyles = makeStyles((theme) => ({
 //   gridContainer: {
@@ -78,6 +77,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
+            <ScrollToTop>
             <div>
               <AppToolBar
                 position="sticky"
@@ -89,29 +89,19 @@ function App() {
               <InfoView id="about" themeState={themeState} />
               {/* </Grid> */}
               <TechStackView id="techstack" themeState={themeState} />
-              {/* <ProjectHomeView id="projects" themeState ={themeState}/> */}
+              <ProjectHomeView id="projects" themeState ={themeState}/>
             </div>
-          </Route>
-          <Route path="/about">
-            <AboutView
-              toggleTheme={toggleTheme}
-              brightnessIcon={brightnessIcon}
-            />
+            </ScrollToTop>
           </Route>
           <Route
             path="/projects/:project_name"
             render={(props) =>
-            <Suspense fallback={<Spinner />}>
-            <ProjectItem {...props} />
-            </Suspense>
+              <ScrollToTop>
+              <ProjectItem {...props} />
+              </ScrollToTop>      
             }
           />
-          {/* <ProjectView
-              toggleTheme={toggleTheme}
-              brightnessIcon={brightnessIcon}
-            /> */}
-          {/* <ProjectItem/>
-          </Route> */}
+          <Redirect to="/"/>
         </Switch>
       </Router>
     </MuiThemeProvider>

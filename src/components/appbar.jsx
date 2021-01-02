@@ -99,7 +99,7 @@ export default function AppToolBar(props) {
               <Link to="techstack" spy={true} smooth={true} offset={-60}>Technologies</Link>
             </Button>
             <Button className={classes.scrollButton}>
-              <Link to="projects" spy={true} smooth={true}>Projects</Link>
+              <Link to="projects" spy={true} smooth={true} offset={-60}>Projects</Link>
             </Button>
         </Toolbar>
       </AppBar>
