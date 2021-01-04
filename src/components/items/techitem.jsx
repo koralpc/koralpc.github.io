@@ -6,9 +6,9 @@ const TechItem = (props) => {
   const styleArray = {
     phone: {
       width: "40%",
-      logoWidth:"55px",
-      logoHeight:"55px",
-      biglogowidth:"70%",
+      logoWidth:"40px",
+      logoHeight:"40px",
+      biglogowidth:"60%",
       margin:"0.2%",
     },
     midTier: {

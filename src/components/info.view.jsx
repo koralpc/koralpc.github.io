@@ -15,6 +15,21 @@ import {
   IconButton,
 } from "@material-ui/core";
 const InfoView = (props) => {
+  const styleArray = {
+    phone: {
+      fontSize:"10px",
+    },
+    midTier: {
+      fontSize:"12px",
+    },
+    laptop: {
+      fontSize:"14px",
+    },
+    large: {
+      fontSize:"16px",
+    },
+  };
+
   const useStyles = makeStyles((theme) => ({
     root: {
       marginTop: "2%",
@@ -95,14 +110,14 @@ const InfoView = (props) => {
               <ListItemIcon>
                 <DoubleArrowIcon />
               </ListItemIcon>
-              <ListItemText primary={<Typography variant="h5">I am currently working in Belgium at Invitae. My responsibilities include deployment/implementation of machine learning models and sometimes full-stack development</Typography> } />
+              <ListItemText primary={<Typography style={{fontSize:styleArray[props.themeStyle].fontSize}} variant="h5">I am currently working in Belgium at Invitae. My responsibilities include deployment/implementation of machine learning models and sometimes full-stack development</Typography> } />
             </ListItem>
             <ListItem>
               <ListItemIcon>
                 <DoubleArrowIcon />
               </ListItemIcon>
               <ListItemText primary=
-              {<Typography variant="h5"><a>I have completed my Master's degree in Computer Science at KU Leuven, Belgium.
+              {<Typography style={{fontSize:styleArray[props.themeStyle].fontSize}} variant="h5"><a>I have completed my Master's degree in Computer Science at KU Leuven, Belgium.
               I wrote my thesis over applications of Shapley value in Machine Learning pipelines. My thesis was awarded with {' '}
               <a href="https://wms.cs.kuleuven.be/cs/english/News/news-items/two-master-thesis-awards-for-students-of-the-master-in-computer-science"
               target="_blank" style={{color:"inherit"}}><b>Excellent Thesis Award</b></a>  in Machine Learning category by Colruyt Group.</a></Typography> } 
@@ -113,7 +128,7 @@ const InfoView = (props) => {
                 <DoubleArrowIcon />
               </ListItemIcon>
               <ListItemText primary=
-              {<Typography variant="h5">In my free time I code the projects displayed in this webpage or create new blogposts</Typography> } />
+              {<Typography style={{fontSize:styleArray[props.themeStyle].fontSize}} variant="h5">In my free time I code the projects displayed in this webpage or create new blogposts</Typography> } />
             </ListItem>
           </List>
         </Typography>

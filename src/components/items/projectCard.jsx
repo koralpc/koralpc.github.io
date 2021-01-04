@@ -12,7 +12,7 @@ export default function ProjectCard(props) {
   const styleArray = {
     phone: {
       titlefontSize: "9px",
-      bodyfontSize : "9px",
+      bodyfontSize : "8px",
       descFontSize : "8px",
     },
     midTier: {
