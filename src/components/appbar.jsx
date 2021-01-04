@@ -10,49 +10,63 @@ import { ButtonGroup } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import {Link} from 'react-scroll'
 
-const useStyles = makeStyles((theme) => ({
-
-  appBar:{
-    position:"fixed",
-    display:"flex",
-    background: "#303030",
-    color: "#fafafa"
-  },
-  title :{
-    color : "#fafafa"
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  rightMenuButton: {
-    marginLeft: "auto",
-  },
-  scrollButton:{
-    color: "#fafafa"
-  }
-}));
-
-
-
 export default function AppToolBar(props) {
+
+  const styleArray = {
+    phone: {
+      fontSize : "10px",
+      spacing: 1,
+    },
+    midTier: {
+      fontSize : "12px",
+      spacing: 2,
+    },
+    laptop: {
+      fontSize : "18px",
+      spacing: 3,
+    },
+    large: {
+      fontSize : "20px",
+      spacing: 4,
+    },
+  };
+
+  const useStyles = makeStyles((theme) => ({
+
+    appBar:{
+      position:"sticky",
+      display:"flex",
+      background: "#303030",
+      color: "#fafafa",
+      width:"100%"
+    },
+    title :{
+      color : "#fafafa"
+    },
+    grow: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(styleArray[props.themeStyle].spacing),
+    },
+    rightMenuButton: {
+      marginLeft: "auto",
+    },
+    scrollButton:{
+      color: "#fafafa",
+      fontSize:styleArray[props.themeStyle].fontSize,
+      whiteSpace:"normal",
+      wordBreak:"break-word",
+    }
+  }));
+  
   const classes = useStyles();
   const history = useHistory();
 
   return (
-    <div className={classes.root}>
+    <div  className={classes.appBar}>
       <AppBar  className={classes.appBar}>
         <Toolbar>
-          {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton> */}
           <Button>
           <Typography variant="h6" className={classes.title}  onClick={() => {
                 history.push("/");

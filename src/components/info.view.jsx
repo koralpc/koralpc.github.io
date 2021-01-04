@@ -19,7 +19,7 @@ const InfoView = (props) => {
     root: {
       marginTop: "2%",
       //(props.themeState === "light" ? "black" : "white"),
-      height: 550,
+      height: "50%",
       width: "100%",
       //   textAlign: "center",
       //   justifyContent: "center",
@@ -46,6 +46,8 @@ const InfoView = (props) => {
     },
     infoCard: {
       paddingTop: "2%",
+      width:"30%",
+      paddingRight:"5%",
       float: "left",
     },
     mediaBox: {
@@ -82,7 +84,7 @@ const InfoView = (props) => {
       <div className={classes.textContainer}>
         <Typography variant="h4" className={classes.infoText}>
           I am a Junior Software Engineer (Working in AI industry)
-          <Typography variant="body1">
+          <Typography variant="h6">
             My main focus is over Artificial Intelligence. This is my personal
             webpage where I display the technologies I am currently using or I have
             used. You can also find my personal projects when you scroll further!
@@ -93,22 +95,25 @@ const InfoView = (props) => {
               <ListItemIcon>
                 <DoubleArrowIcon />
               </ListItemIcon>
-              <ListItemText primary={"I am currently working in Belgium at Invitae. My responsibilities include deployment/implementation of machine learning models and sometimes full-stack development"} />
+              <ListItemText primary={<Typography variant="h5">I am currently working in Belgium at Invitae. My responsibilities include deployment/implementation of machine learning models and sometimes full-stack development</Typography> } />
             </ListItem>
             <ListItem>
               <ListItemIcon>
                 <DoubleArrowIcon />
               </ListItemIcon>
-              <ListItemText primary={<a>I have completed my Master's degree in Computer Science at KU Leuven, Belgium.
+              <ListItemText primary=
+              {<Typography variant="h5"><a>I have completed my Master's degree in Computer Science at KU Leuven, Belgium.
               I wrote my thesis over applications of Shapley value in Machine Learning pipelines. My thesis was awarded with {' '}
               <a href="https://wms.cs.kuleuven.be/cs/english/News/news-items/two-master-thesis-awards-for-students-of-the-master-in-computer-science"
-              target="_blank" style={{color:"inherit"}}><b>Excellent Thesis Award</b></a>  in Machine Learning category by Colruyt Group.</a>}/>
+              target="_blank" style={{color:"inherit"}}><b>Excellent Thesis Award</b></a>  in Machine Learning category by Colruyt Group.</a></Typography> } 
+              />
             </ListItem>
             <ListItem>
               <ListItemIcon>
                 <DoubleArrowIcon />
               </ListItemIcon>
-              <ListItemText primary="In my free time I code the projects displayed in this webpage or create new blogposts" />
+              <ListItemText primary=
+              {<Typography variant="h5">In my free time I code the projects displayed in this webpage or create new blogposts</Typography> } />
             </ListItem>
           </List>
         </Typography>

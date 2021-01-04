@@ -1,6 +1,38 @@
 import { makeStyles } from "@material-ui/core"
+import React,{ useState } from "react";
 
 const TechItem = (props) => {
+
+  const styleArray = {
+    phone: {
+      width: "40%",
+      logoWidth:"55px",
+      logoHeight:"55px",
+      biglogowidth:"70%",
+      margin:"0.2%",
+    },
+    midTier: {
+      width: "60%",
+      logoWidth:"75px",
+      logoHeight:"75px",
+      biglogowidth:"80%",
+      margin:"1%",
+    },
+    laptop: {
+      width: "60%",
+      logoWidth:"100px",
+      logoHeight:"100px",
+      biglogowidth:"100%",
+      margin:"2%",
+    },
+    large: {
+      width: "80%",
+      logoWidth:"100px",
+      logoHeight:"100px",
+      biglogowidth:"100%",
+      margin:"4%",
+    },
+  };
 
 const smallLogos = ["Express","GCP","Pandas"];
 
@@ -9,18 +41,19 @@ const useStyles = makeStyles((theme) => ({
         flex: "5",
       },
     logoImg: {
-        width: "60%",
+        width: styleArray[props.themeStyle].width,
         objectFit: "cover",
       },    
       biglogoImg: {
-        width: "100%",
+        width: styleArray[props.themeStyle].biglogowidth,
         objectFit: "cover",
       }, 
       logo: {
-        width: "100px",
-        height: "100px",
+        paddingTop: "20px",
+        width: styleArray[props.themeStyle].logoWidth,
+        height: styleArray[props.themeStyle].logoHeight,
         float: "left",
-        marginRight: "2%",
+        marginRight: styleArray[props.themeStyle].margin,
         
       },
       itemName:{

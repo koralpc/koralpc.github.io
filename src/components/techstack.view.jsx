@@ -5,11 +5,29 @@ import otherdata from "./data/otherStack.json";
 import TechItem from "./items/techitem"
 
 const TechStackView = (props) => {
+    const styleArray = {
+        phone: {
+            height: "400px",
+            marginLeft:"5%",
+        },
+        midTier: {
+            height: "450px",
+            marginLeft:"7%",
+        },
+        laptop: {
+            height: "550px",
+            marginLeft:"12%",
+        },
+        large: {
+            height: "650px",
+            marginLeft:"20%",
+        },
+      };
 
     const useStyles = makeStyles((theme) => ({
         root : {
             background : (props.themeState === "light" ? "#303030" : "#fafafa"),
-            height:600,
+            height:styleArray[props.themeStyle].height,
             width:"100%",
             justifyContent:"center",
         },
@@ -29,10 +47,10 @@ const TechStackView = (props) => {
         },
         itemContainer: {
             width: "90%",
-            marginLeft: "10%",
-            marginRight:"15%",
-            paddingTop: "5%",
-            //display: "flex",
+            marginLeft: styleArray[props.themeStyle].marginLeft,
+            //marginRight:"15%",
+            paddingTop: "2%",
+            display: "flex",
             justifyContent:"center"
           },
         gridItem :{
@@ -66,7 +84,7 @@ const TechStackView = (props) => {
                 </Typography>
             
             {pythondata.map((item) => (
-          <TechItem {...item}  themeState ={props.themeState} key={item.name} />
+          <TechItem {...item}  themeState ={props.themeState} key={item.name} themeStyle={props.themeStyle}/>
             ))}
             </Grid>
             <Grid item className={classes.gridItem}>
@@ -75,7 +93,7 @@ const TechStackView = (props) => {
                 </Typography>
             
             {jsdata.map((item) => (
-          <TechItem {...item}  themeState ={props.themeState} key={item.name} />
+          <TechItem {...item}  themeState ={props.themeState} key={item.name} themeStyle={props.themeStyle}/>
             ))}
             </Grid>
             <Grid item className={classes.gridItem}>
@@ -84,7 +102,7 @@ const TechStackView = (props) => {
                 </Typography>
             
             {otherdata.map((item) => (
-          <TechItem {...item}  themeState ={props.themeState} key={item.name} />
+          <TechItem {...item}  themeState ={props.themeState} key={item.name} themeStyle={props.themeStyle}/>
             ))}
             </Grid>
             </Grid>

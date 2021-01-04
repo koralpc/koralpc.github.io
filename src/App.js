@@ -1,5 +1,5 @@
 import AppToolBar from "./components/appbar";
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme,responsiveFontSizes } from "@material-ui/core/styles";
 import { useState,Suspense,Spinner } from "react";
 import { MuiThemeProvider } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -49,11 +49,42 @@ import ScrollToTop from "./components/utils/scrollTop";
 
 function App() {
   const [themeState, setThemeState] = useState("dark");
-  const theme = createMuiTheme({
+  const [themeStyle, setStyle] = useState("laptop");
+
+  React.useEffect(() => {
+    if (window.screen.width <= 425) {
+      setStyle("phone");
+    } else if (window.screen.width <= 1024) {
+      setStyle("midTier");
+    } else if (window.screen.width <= 1440) {
+      setStyle("laptop");
+    } else {
+      setStyle("large");
+    }
+  }, []);
+
+  window.addEventListener("resize", () => {
+    if (window.screen.width <= 425) {
+      console.log(themeStyle);
+      setStyle("phone");
+    } else if (window.screen.width <= 768) {
+      console.log(themeStyle);
+      setStyle("midTier");
+    } else if (window.screen.width <= 1440) {
+      console.log(themeStyle);
+      setStyle("laptop");
+    } else {
+      console.log(themeStyle);
+      setStyle("large");
+    }
+  });
+
+  let theme = createMuiTheme({
     palette: {
       type: themeState === "dark" ? "dark" : "light",
     },
   });
+  theme = responsiveFontSizes(theme);
 
   function brightnessIcon(props) {
     if (themeState === "dark") {
@@ -70,7 +101,6 @@ function App() {
       setThemeState("light");
     }
   };
-
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
@@ -83,13 +113,17 @@ function App() {
                 position="sticky"
                 toggleTheme={toggleTheme}
                 brightnessIcon={brightnessIcon}
+                themeStyle={themeStyle}
               />
-              {/* <Grid container spacing={3} className={classes.gridContainer}> */}
-              <HomeHeaderView id="header" themeState={themeState} />
-              <InfoView id="about" themeState={themeState} />
+              <div style={{"display": "block","flex-direction": "column"}}>
+                <HomeHeaderView id="header" themeState={themeState} themeStyle={themeStyle}/>
+              <InfoView id="about" themeState={themeState} themeStyle={themeStyle}/>
               {/* </Grid> */}
-              <TechStackView id="techstack" themeState={themeState} />
-              <ProjectHomeView id="projects" themeState ={themeState}/>
+              <TechStackView id="techstack" themeState={themeState} themeStyle={themeStyle} />
+              <ProjectHomeView id="projects" themeState ={themeState} themeStyle={themeStyle}/>
+              </div>
+              {/* <Grid container spacing={3} className={classes.gridContainer}> */}
+
             </div>
             </ScrollToTop>
           </Route>
@@ -97,7 +131,7 @@ function App() {
             path="/projects/:project_name"
             render={(props) =>
               <ScrollToTop>
-              <ProjectItem {...props} />
+              <ProjectItem {...props} themeStyle={themeStyle}/>
               </ScrollToTop>      
             }
           />

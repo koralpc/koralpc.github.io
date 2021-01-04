@@ -11,6 +11,50 @@ import Loader from "react-loader-spinner";
 //import markdownURI from './foo2.md';
 
 const ProjectItem = (props) => {
+
+  const styleArray = {
+    phone: {
+      marginBottom:"10px",
+      marginTop:"30px",
+      marginLeft: "55%",
+      fontSize : "12px",
+      paddingTop : "40px",
+      fontSizeDesc : "14px",
+      paddingLeft : "2%",
+      avatarPadTop : "50px",
+    },
+    midTier: {
+      marginBottom:"10px",
+      marginTop:"10px",
+      marginLeft: "60%",
+      fontSize : "14px",
+      paddingTop : "10px",
+      fontSizeDesc : "14px",
+      paddingLeft : "5%",
+      avatarPadTop : "40px",
+    },
+    laptop: {
+      marginBottom:"30px",
+      marginTop:"10px",
+      marginLeft: "60%",
+      fontSize : "18px",
+      paddingTop : "50px",
+      fontSizeDesc : "16px",
+      paddingLeft : "15%",
+      avatarPadTop : "40px",
+    },
+    large: {
+      marginBottom:"10px",
+      marginTop:"20px",
+      marginLeft: "80%",
+      fontSize : "18px",
+      paddingTop : "5px",
+      fontSizeDesc : "18px",
+      paddingLeft : "30%",
+      avatarPadTop : "20px",
+    },
+  };
+
   const useStyles = makeStyles((theme) => ({
     root: {
       background: "#fafafa",
@@ -28,16 +72,18 @@ const ProjectItem = (props) => {
     headerContainer: {
       //textAlign : "center",
       width: "50%",
+      paddingTop:"20px"
     },
     header: {
       color: "inherit",
-      paddingLeft: "5%",
+      paddingLeft: styleArray[props.themeStyle].paddingLeft,
       paddingTop: "2%",
       fontSize: 30,
       display: "flex",
       fontFamily: "Cinzel",
       marginBottom: "-75px",
-      height: 200,
+      height: 150,
+      
     },
     divider: {
       //color: (props.themeState === "light" ? "black" : "white"),
@@ -53,11 +99,18 @@ const ProjectItem = (props) => {
       marginTop: "5%",
     },
     avatar: {
-      marginLeft: "60%",
+      marginLeft: styleArray[props.themeStyle].marginLeft,
       // marginTop : "20px",
       marginBottom: "-100px",
-      paddingTop: "10px",
+      paddingTop: styleArray[props.themeStyle].paddingTop,
       float: "left",
+    },
+    avatarIcon : {
+    float: "right",
+    marginBottom:styleArray[props.themeStyle].marginBottom,
+    },
+    caption :{
+      fontSize: styleArray[props.themeStyle].fontSize,
     },
     loader:{
         marginLeft:"45%",
@@ -133,15 +186,15 @@ const ProjectItem = (props) => {
             <Typography variant="h2" className={classes.header}>
               {data.title}
             </Typography>
-            <div className={classes.avatar}>
-              <Typography style={{ float: "left", marginTop: "10px" }}>
+            <div className={classes.avatar} style={{paddingTop:styleArray[props.themeStyle].avatarPadTop}}>
+              <Typography style={{ float: "left",fontSize:styleArray[props.themeStyle].fontSizeDesc }}>
                 {data.date} | {data.duration} minute read
               </Typography>
               <Box ml={3} style={{ float: "left" }} />
-              <Avatar style={{ float: "right" }}>K</Avatar>
+              <Avatar className={classes.avatarIcon}>K</Avatar>
             </div>
             <div className={classes.headerContainer}>
-              <Typography variant="caption">{data.description}</Typography>
+              <Typography variant="caption" className={classes.caption}>{data.description}</Typography>
             </div>
             <Divider className={classes.divider} />
             <ReactMarkdownWithHtml

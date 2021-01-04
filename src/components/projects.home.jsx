@@ -53,7 +53,7 @@ const ProjectHomeView = (props) => {
           });}, 1000);}, []);
 
     let items = projects.map((projectData) => {
-        return <div><ProjectCard {...projectData} /></div>;
+        return <div><ProjectCard {...projectData} themeStyle= {props.themeStyle} /></div>;
     })
     const responsive = {
         0: { items: 1 },
