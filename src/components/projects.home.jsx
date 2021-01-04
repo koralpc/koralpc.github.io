@@ -30,7 +30,7 @@ const ProjectHomeView = (props) => {
             }
     }));
     const [projects, setProjects] = useState([]);
-    const markdownURI = `http://127.0.0.1:4000/api/projects/`;
+    const markdownURI = `https://koralp-page-backend.herokuapp.com/projects/`;
 
     const renderNext = () => {
         return <NavigateNextIcon style={{height:"50px",width:"50px"}}/>
