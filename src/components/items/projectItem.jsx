@@ -157,7 +157,7 @@ const ProjectItem = (props) => {
     date: "",
   });
   const [loading, setLoading] = useState(true);
-  const markdownURI = `https://koralp-page-backend.herokuapp.com/projects/${props.match.params.project_name}`;
+  const markdownURI = `http://127.0.0.1:4000/api/projects/${props.match.params.project_name}`;
 
   React.useEffect(() => {
     setTimeout(() => { 
