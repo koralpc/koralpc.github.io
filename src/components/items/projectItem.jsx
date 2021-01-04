@@ -15,43 +15,60 @@ const ProjectItem = (props) => {
   const styleArray = {
     phone: {
       marginBottom:"10px",
-      marginTop:"30px",
+      marginTop:"60px",
+      marginTopIcon:(425 >= window.screen.width > 325 ? "-15px" : "-30px"),
       marginLeft: "55%",
-      fontSize : "12px",
-      paddingTop : "40px",
-      fontSizeDesc : "14px",
+      fontSize : (425 >= window.screen.width > 325 ? "11px" : "10px"),
+      paddingTop : "5%",
+      fontSizeDesc : "9px",
       paddingLeft : "2%",
-      avatarPadTop : "50px",
+      avatarPadTop : (425 >= window.screen.width > 325 ? "12%" : "13%"),
+      avatarWidth:"22px",
+      avatarHeight:"22px",
+      headerFont:"20px",
     },
     midTier: {
       marginBottom:"10px",
       marginTop:"10px",
+      marginTopIcon:"-35px",
       marginLeft: "60%",
       fontSize : "14px",
-      paddingTop : "10px",
-      fontSizeDesc : "14px",
+      paddingTop : "2%",
+      fontSizeDesc : "12px",
       paddingLeft : "5%",
-      avatarPadTop : "40px",
+      avatarPadTop : "4%",
+      avatarWidth:"30px",
+      avatarHeight:"30px",
+      headerFont:"24px",
     },
     laptop: {
-      marginBottom:"30px",
+      marginBottom:"10px",
       marginTop:"10px",
-      marginLeft: "60%",
-      fontSize : "18px",
-      paddingTop : "50px",
-      fontSizeDesc : "16px",
+      marginTopIcon:"-35px",
+      //marginLeft: "70%",
+      marginRight: "2%",
+      fontSize : "14px",
+      paddingTop : "4%",
+      fontSizeDesc : "14px",
       paddingLeft : "15%",
-      avatarPadTop : "40px",
+      avatarPadTop : "3%",
+      avatarWidth:"40px",
+      avatarHeight:"40px",
+      headerFont:"26px",
     },
     large: {
       marginBottom:"10px",
       marginTop:"20px",
+      marginTopIcon:"-40px",
       marginLeft: "80%",
       fontSize : "18px",
-      paddingTop : "5px",
+      paddingTop : "1%",
       fontSizeDesc : "18px",
       paddingLeft : "30%",
-      avatarPadTop : "20px",
+      avatarPadTop : "2%",
+      avatarWidth:"50px",
+      avatarHeight:"50px",
+      headerFont:"30px",
     },
   };
 
@@ -72,17 +89,18 @@ const ProjectItem = (props) => {
     headerContainer: {
       //textAlign : "center",
       width: "50%",
-      paddingTop:"20px"
+      paddingTop: (props.themeStyle === "phone" ? (435 >= window.screen.width >= 325 ?
+        "20px" : "40px"): "20px")
     },
     header: {
       color: "inherit",
       paddingLeft: styleArray[props.themeStyle].paddingLeft,
       paddingTop: "2%",
-      fontSize: 30,
+      fontSize: styleArray[props.themeStyle].headerFont,
       display: "flex",
       fontFamily: "Cinzel",
-      marginBottom: "-75px",
-      height: 150,
+      marginBottom: "-25px",
+      height: 100,
       
     },
     divider: {
@@ -99,15 +117,18 @@ const ProjectItem = (props) => {
       marginTop: "5%",
     },
     avatar: {
-      marginLeft: styleArray[props.themeStyle].marginLeft,
+      //marginLeft: styleArray[props.themeStyle].marginLeft,
       // marginTop : "20px",
       marginBottom: "-100px",
-      paddingTop: styleArray[props.themeStyle].paddingTop,
-      float: "left",
+      paddingBottom: styleArray[props.themeStyle].paddingTop,
+      float: "right",
     },
     avatarIcon : {
     float: "right",
     marginBottom:styleArray[props.themeStyle].marginBottom,
+    marginTop : styleArray[props.themeStyle].marginTopIcon,
+    height:styleArray[props.themeStyle].avatarHeight,
+    width:styleArray[props.themeStyle].avatarWidth
     },
     caption :{
       fontSize: styleArray[props.themeStyle].fontSize,
@@ -187,14 +208,16 @@ const ProjectItem = (props) => {
               {data.title}
             </Typography>
             <div className={classes.avatar} style={{paddingTop:styleArray[props.themeStyle].avatarPadTop}}>
-              <Typography style={{ float: "left",fontSize:styleArray[props.themeStyle].fontSizeDesc }}>
+              <Typography style={{width:"90%", paddingLeft:"30%", float: "left",fontSize:styleArray[props.themeStyle].fontSizeDesc,
+                  whiteSpace:"normal",
+                  wordBreak:"break-word" }}>
                 {data.date} | {data.duration} minute read
               </Typography>
               <Box ml={3} style={{ float: "left" }} />
               <Avatar className={classes.avatarIcon}>K</Avatar>
             </div>
             <div className={classes.headerContainer}>
-              <Typography variant="caption" className={classes.caption}>{data.description}</Typography>
+              <Typography className={classes.caption}>{data.description}</Typography>
             </div>
             <Divider className={classes.divider} />
             <ReactMarkdownWithHtml
