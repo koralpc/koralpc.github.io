@@ -11,9 +11,11 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
+import DescriptionIcon from '@material-ui/icons/Description';
 import {
   IconButton,
 } from "@material-ui/core";
+import { Link, useHistory } from "react-router-dom";
 const InfoView = (props) => {
   const styleArray = {
     phone: {
@@ -92,6 +94,7 @@ const InfoView = (props) => {
   }));
 
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <div id={props.id} className={classes.root}>
@@ -161,6 +164,13 @@ const InfoView = (props) => {
           className={classes.iconButton}
         >
           <MailOutlineIcon className={classes.icon}/>
+        </IconButton>
+        <IconButton
+          aria-label="Check my Resume"
+          onClick={()=>history.push('/resume/')}
+          className={classes.iconButton}
+        >
+          <DescriptionIcon className={classes.icon}/>
         </IconButton>
         {/* </Card> */}
       </div>

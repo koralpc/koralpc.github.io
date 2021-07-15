@@ -1,10 +1,15 @@
 import AppToolBar from "./components/appbar";
-import { createMuiTheme,responsiveFontSizes } from "@material-ui/core/styles";
-import { useState,Suspense,Spinner } from "react";
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { useState, Suspense, Spinner } from "react";
 import { MuiThemeProvider } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import React from "react";
-import { BrowserRouter as Router, Redirect, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Switch,
+  Route,
+} from "react-router-dom";
 import ProjectHomeView from "./components/projects.home";
 //import { makeStyles } from "@material-ui/core";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
@@ -14,6 +19,7 @@ import InfoView from "./components/info.view";
 import TechStackView from "./components/techstack.view";
 import ProjectItem from "./components/items/projectItem";
 import ScrollToTop from "./components/utils/scrollTop";
+import PdfRender from "./components/items/resumeRender";
 
 // const useStyles = makeStyles((theme) => ({
 //   gridContainer: {
@@ -108,34 +114,50 @@ function App() {
         <Switch>
           <Route exact path="/">
             <ScrollToTop>
-            <div>
-              <AppToolBar
-                position="sticky"
-                toggleTheme={toggleTheme}
-                brightnessIcon={brightnessIcon}
-                themeStyle={themeStyle}
-              />
-              <div style={{"display": "block","flex-direction": "column"}}>
-                <HomeHeaderView id="header" themeState={themeState} themeStyle={themeStyle}/>
-              <InfoView id="about" themeState={themeState} themeStyle={themeStyle}/>
-              {/* </Grid> */}
-              <TechStackView id="techstack" themeState={themeState} themeStyle={themeStyle} />
-              <ProjectHomeView id="projects" themeState ={themeState} themeStyle={themeStyle}/>
+              <div>
+                <AppToolBar
+                  position="sticky"
+                  toggleTheme={toggleTheme}
+                  brightnessIcon={brightnessIcon}
+                  themeStyle={themeStyle}
+                />
+                <div style={{ display: "block", "flex-direction": "column" }}>
+                  <HomeHeaderView
+                    id="header"
+                    themeState={themeState}
+                    themeStyle={themeStyle}
+                  />
+                  <InfoView
+                    id="about"
+                    themeState={themeState}
+                    themeStyle={themeStyle}
+                  />
+                  {/* </Grid> */}
+                  <TechStackView
+                    id="techstack"
+                    themeState={themeState}
+                    themeStyle={themeStyle}
+                  />
+                  <ProjectHomeView
+                    id="projects"
+                    themeState={themeState}
+                    themeStyle={themeStyle}
+                  />
+                </div>
+                {/* <Grid container spacing={3} className={classes.gridContainer}> */}
               </div>
-              {/* <Grid container spacing={3} className={classes.gridContainer}> */}
-
-            </div>
             </ScrollToTop>
           </Route>
           <Route
             path="/projects/:project_name"
-            render={(props) =>
+            render={(props) => (
               <ScrollToTop>
-              <ProjectItem {...props} themeStyle={themeStyle}/>
-              </ScrollToTop>      
-            }
+                <ProjectItem {...props} themeStyle={themeStyle} />
+              </ScrollToTop>
+            )}
           />
-          <Redirect to="/"/>
+          <Route path="/resume" render={(props) => <PdfRender {...props} />} />
+          <Redirect to="/" />
         </Switch>
       </Router>
     </MuiThemeProvider>
