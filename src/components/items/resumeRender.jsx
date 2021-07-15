@@ -42,11 +42,6 @@ const PdfRender = (props) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Tooltip title="Download me!" aria-label="add">
-                <Fab color="primary" aria-label="add" className={classes.fab} onClick={downloadFile}>
-                    <GetAppIcon />
-                </Fab>
-            </Tooltip>
             <Document
                 file={CV}
                 options={{ workerSrc: "/pdf.worker.js" }}
@@ -56,6 +51,11 @@ const PdfRender = (props) => {
                     <Page size="A4" key={`page_${index + 1}`} pageNumber={index + 1} />
                 ))}
             </Document>
+            <Tooltip title="Download me!" aria-label="add">
+                <Fab color="primary" aria-label="add" className={classes.fab} onClick={downloadFile}>
+                    <GetAppIcon />
+                </Fab>
+            </Tooltip>
         </div>
 
     );

@@ -156,7 +156,14 @@ function App() {
               </ScrollToTop>
             )}
           />
-          <Route path="/resume" render={(props) => <PdfRender {...props} />} />
+          <Route
+            path="/resume"
+            render={(props) => (
+              <ScrollToTop>
+                <PdfRender {...props} />
+              </ScrollToTop>
+            )}
+          />
           <Redirect to="/" />
         </Switch>
       </Router>
